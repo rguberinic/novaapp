@@ -15,7 +15,7 @@ export default {
   },
   
   mounted () {
-    this.setShowBackButton(false) 
+    this.setShowBackButton(true)
   },
   computed: {
     ...mapGetters(['getGamesArr'])
