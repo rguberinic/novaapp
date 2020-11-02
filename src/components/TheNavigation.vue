@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState,mapActions} from 'vuex'
 export default {
   data () {
     return {
@@ -31,12 +31,13 @@ export default {
       }
     },
     handleSearchNews () {
-      console.log('ADAHSDAHS');
       this.$emit('handleSearchNews',this.searchGame)
     },
     goBack () {
       this.$f7.views.main.router.back()
-    }
+      this.setShowBackButton(false)
+    },
+    ...mapActions(['setShowBackButton'])
   },
   computed: {
       ...mapState(['showBackButton'])

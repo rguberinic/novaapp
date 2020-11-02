@@ -35,6 +35,7 @@ export default {
             this.currentSelectedNewsArr = response.data.news.newsitems
             this.$f7.views.main.router.navigate('/news/')
             this.$store.commit('setCurrentNewsArr', this.currentSelectedNewsArr)
+            console.log(this.currentSelectedNewsArr)
           }
           else{
             console.log('there are not any news')

@@ -1,6 +1,6 @@
 <template>
 <f7-page>
-  <div id="news" v-for='(news,idx) in currentNewsArr' :key='idx'>
+  <div id="news" v-for='(news,idx) in getGamesArr' :key='idx'>
     <h2>{{news.title}}</h2>
     <span v-html="news.contents"></span>
   </div>
@@ -8,13 +8,17 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 export default {
-    computed:{
-    ...mapState(['currentNewsArr'])
+  methods: {
+    ...mapActions(['setShowBackButton'])
   },
+  
   mounted () {
-    this.$store.commit('setShowBackButton',true) 
+    this.setShowBackButton(false) 
+  },
+  computed: {
+    ...mapGetters(['getGamesArr'])
   }
 }
 </script>
